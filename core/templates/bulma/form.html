@@ -1,0 +1,16 @@
+{% extends 'bulma/base.html' %}
+{% load bulma_tags %}
+
+{% block content %}
+{% block form_title %}<h3>Formulario</h3>{% endblock %}
+<form method="post">
+   {% csrf_token %}
+   {{ form|bulma }}
+   <div class="field">
+     <button type="submit" class="button is-primary">
+     	{% block button_submit %}Enviar{% endblock %}
+     </button>
+   </div>
+   <input type="hidden" name="next" value="{{ next }}"/>
+</form>
+{% endblock content %}
